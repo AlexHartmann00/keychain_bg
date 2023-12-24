@@ -43,6 +43,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: flutter-app
+          path: build/web
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
@@ -53,5 +54,5 @@ jobs:
         with:
           app-name: 'bg-keychain'
           slot-name: 'production'
-          package: .
+          package: build/web
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_c6adcee273984c7c85a36f80c04eb0d5 }}
